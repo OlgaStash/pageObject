@@ -1,6 +1,7 @@
 package ru.netology.web.test;
 
 import lombok.val;
+import lombok.var;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import ru.netology.web.data.DataHelper;
