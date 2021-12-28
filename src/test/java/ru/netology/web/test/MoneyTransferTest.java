@@ -53,4 +53,20 @@ public class MoneyTransferTest {
         assertEquals(expectedResultFirstCard, actualResultsFirstCard);
         assertEquals(expectedResultSecondCard, actualResultsSecondCard);
     }
+
+    @Test
+    void shouldTransferMoneyFromSecondCardMoreLimit() {
+        val dashboardPage = new DashboardPage();
+        int amountValue = 20000;
+
+        val expectedResultSecondCard = dashboardPage.getSecondCardBalance() - amountValue;
+        val expectedResultFirstCard = dashboardPage.getFirstCardBalance() + amountValue;
+        // пополнить
+        val transferPage = dashboardPage.firstCardDeposit();
+        transferPage.updateBalance(amountValue, DataHelper.getSecondCardNumber());
+        val actualResultsFirstCard = dashboardPage.getFirstCardBalance();
+        val actualResultsSecondCard = dashboardPage.getSecondCardBalance();
+        assertEquals(expectedResultFirstCard, actualResultsFirstCard);
+        assertEquals(expectedResultSecondCard, actualResultsSecondCard);
+    }
 }
