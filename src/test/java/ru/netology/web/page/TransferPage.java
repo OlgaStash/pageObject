@@ -24,13 +24,9 @@ public class TransferPage {
         return new DashboardPage();
     }
 
-    //Не понимаю, как его реализовать
-    public boolean error() {
-        if (amountField > dashboardPage.extractBalance(String text) ) {
-            error.shouldBe(appear).shouldHave(text("Ошибка"));
-        }
-        return false;
-    }
 
+    public void getError() {
+        error.shouldBe(appear).shouldHave(text("Ошибка"));
+    }
 }
 

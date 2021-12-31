@@ -36,7 +36,7 @@ public class MoneyTransferTest {
         val expectedResultFirstCard = dashboardPage.getFirstCardBalance() - amountValue;
         val expectedResultSecondCard = dashboardPage.getSecondCardBalance() + amountValue;
         // пополнить
-         val transferPage = dashboardPage.secondCardDeposit();
+        val transferPage = dashboardPage.secondCardDeposit();
         transferPage.updateBalance(amountValue, DataHelper.getFirstCardNumber());
         val actualResultsFirstCard = dashboardPage.getFirstCardBalance();
         val actualResultsSecondCard = dashboardPage.getSecondCardBalance();
@@ -74,6 +74,6 @@ public class MoneyTransferTest {
         val actualResultsSecondCard = dashboardPage.getSecondCardBalance();
         assertEquals(expectedResultFirstCard, actualResultsFirstCard);
         assertEquals(expectedResultSecondCard, actualResultsSecondCard);
-        assertTrue(transferPage.error());
+        transferPage.getError();
     }
 }
