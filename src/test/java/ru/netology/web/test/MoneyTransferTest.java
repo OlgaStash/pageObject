@@ -8,8 +8,14 @@ import ru.netology.web.data.DataHelper;
 import ru.netology.web.page.DashboardPage;
 import ru.netology.web.page.LoginPage;
 
+import java.time.Duration;
+
+import static com.codeborne.selenide.Condition.visible;
+import static com.codeborne.selenide.Selectors.byText;
+import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class MoneyTransferTest {
     @BeforeEach
@@ -68,5 +74,6 @@ public class MoneyTransferTest {
         val actualResultsSecondCard = dashboardPage.getSecondCardBalance();
         assertEquals(expectedResultFirstCard, actualResultsFirstCard);
         assertEquals(expectedResultSecondCard, actualResultsSecondCard);
+        assertTrue(transferPage.error());
     }
 }
